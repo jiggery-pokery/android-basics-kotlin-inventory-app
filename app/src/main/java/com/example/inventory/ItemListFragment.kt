@@ -44,6 +44,10 @@ class ItemListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val adapter = ItemAdapter {
+            TODO("Implement on click")
+        }
+
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.floatingActionButton.setOnClickListener {
             val action = ItemListFragmentDirections.actionItemListFragmentToAddItemFragment(
@@ -51,5 +55,7 @@ class ItemListFragment : Fragment() {
             )
             this.findNavController().navigate(action)
         }
+
+        binding.recyclerView.adapter = adapter
     }
 }
