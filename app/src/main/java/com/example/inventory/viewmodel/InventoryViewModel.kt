@@ -69,7 +69,7 @@ class InventoryViewModel(private val itemDao: ItemDao): ViewModel() {
         return true
     }
 
-
+    fun isStockAvailable(item: Item): Boolean = (item.quantityInStock > 0)
 
 }
 
