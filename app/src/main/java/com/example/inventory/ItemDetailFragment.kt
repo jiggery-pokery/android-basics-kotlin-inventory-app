@@ -71,6 +71,10 @@ class ItemDetailFragment : Fragment() {
             showConfirmationDialog()
         }
 
+        binding.sellItem.setOnClickListener {
+            viewModel.sellItem(item)
+        }
+
         binding.editItem.setOnClickListener {
             val action = ItemDetailFragmentDirections.actionItemDetailFragmentToAddItemFragment(getString(R.string.edit_fragment_title))
             this.findNavController().navigate(action)
