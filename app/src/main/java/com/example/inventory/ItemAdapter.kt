@@ -47,11 +47,12 @@ class ItemAdapter(
     class ItemViewHolder(
         private var binding: ItemListItemBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("SimpleDateFormat")
         fun bind(item: Item) {
-            binding.itemName.text = item.itemName
-            binding.itemPrice.text = item.itemPrice.toString()
-            binding.itemQuantity.text = item.quantityInStock.toString()
+            binding.apply {
+                itemName.text = item.itemName
+                itemPrice.text = item.itemPrice.toString()
+                itemQuantity.text = item.quantityInStock.toString()
+            }
         }
     }
 }
