@@ -66,6 +66,10 @@ class ItemDetailFragment : Fragment() {
             item = selectedItem
             bind(item)
         }
+
+        binding.deleteItem.setOnClickListener {
+            showConfirmationDialog()
+        }
     }
 
     private fun bind(item: Item) {
@@ -95,6 +99,7 @@ class ItemDetailFragment : Fragment() {
      * Deletes the current item and navigates to the list fragment.
      */
     private fun deleteItem() {
+        viewModel.deleteItem(item)
         findNavController().navigateUp()
     }
 

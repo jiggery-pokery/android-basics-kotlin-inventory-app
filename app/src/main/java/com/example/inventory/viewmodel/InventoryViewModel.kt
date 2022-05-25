@@ -16,6 +16,12 @@ class InventoryViewModel(private val itemDao: ItemDao): ViewModel() {
         }
     }
 
+    private fun removeItem(item: Item) {
+        viewModelScope.launch {
+            itemDao.delete(item)
+        }
+    }
+
     private fun getNewItemEntry(
         itemName: String,
         itemPrice: String,
@@ -29,6 +35,10 @@ class InventoryViewModel(private val itemDao: ItemDao): ViewModel() {
     ) {
         val newItem = getNewItemEntry(itemName, itemPrice, itemCount)
         insertItem(newItem)
+    }
+
+    fun deleteItem(item: Item) {
+        removeItem(item)
     }
 
     fun getItems(): Flow<List<Item>> = itemDao.getItems()
@@ -45,6 +55,8 @@ class InventoryViewModel(private val itemDao: ItemDao): ViewModel() {
         }
         return true
     }
+
+
 
 }
 
