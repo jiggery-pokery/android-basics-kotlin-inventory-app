@@ -76,7 +76,9 @@ class ItemDetailFragment : Fragment() {
         }
 
         binding.editItem.setOnClickListener {
-            val action = ItemDetailFragmentDirections.actionItemDetailFragmentToAddItemFragment(getString(R.string.edit_fragment_title))
+            val action = ItemDetailFragmentDirections.actionItemDetailFragmentToAddItemFragment(
+                title = getString(R.string.edit_fragment_title), itemId = item.id
+            )
             this.findNavController().navigate(action)
         }
     }
