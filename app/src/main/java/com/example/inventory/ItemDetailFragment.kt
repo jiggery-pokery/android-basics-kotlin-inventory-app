@@ -70,6 +70,11 @@ class ItemDetailFragment : Fragment() {
         binding.deleteItem.setOnClickListener {
             showConfirmationDialog()
         }
+
+        binding.editItem.setOnClickListener {
+            val action = ItemDetailFragmentDirections.actionItemDetailFragmentToAddItemFragment(getString(R.string.edit_fragment_title))
+            this.findNavController().navigate(action)
+        }
     }
 
     private fun bind(item: Item) {
